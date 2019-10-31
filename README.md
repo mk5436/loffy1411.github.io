@@ -15,7 +15,7 @@ Repository for team project by Team 9 (SWE2021-42)
 [Meeting Logs (Word)](docs/logs.doc)
 
 ### Brainstorming
-[Brainstorming (Word)](docs/brainstorming)
+[Brainstorming (Word)](docs/Brainstorming)
 
 ### Presentation
 [Presentation (PowerPoint)](docs/Presentation)
