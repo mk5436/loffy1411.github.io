@@ -1,4 +1,4 @@
-# OSS2019Fall-Team9
+# 2019Fall-OSS-Team9
 2019 Fall 오픈소스소프트웨어실습
 Repository for team project by Team 9 (SWE2021-42)
 
