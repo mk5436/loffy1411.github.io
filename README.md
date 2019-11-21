@@ -4,10 +4,9 @@ Repository for team project by Team 9 (SWE2021-42)
 
 ## Team Members
 - 이재원 [@jwl317](https://github.com/jwl317)
-- 문성암 [@]()
+- 문성암 [@mk5436](https://github.com/mk5436)
 - 하예송 [@chocoPenguin](https://github.com/chocoPenguin)
 - 이지선 [@loffy1411](https://github.com/loffy1411)
-
 
 ## Documents
 
