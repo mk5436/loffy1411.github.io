@@ -1,0 +1,21 @@
+{
+    "name": "everytime_filter",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "에브리타임 필터링",
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+	//"persistent": false
+    },
+    "browser_action": {
+        "default_title": "filter"
+    },
+    "permissions": [
+        "https://everytime.kr/*",
+        "http://everytime.kr/*",
+        "tabs"
+    ]
+}
