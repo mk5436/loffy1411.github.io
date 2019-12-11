@@ -14,12 +14,17 @@ function isWord(word_list, title){
     var titletemplist = [];
 	var contentstemplist =[];
 	console.log('11');
-	var word_list=["나"];
+	var word_list=["난"];
+
+	var content_title = document.querySelectorAll("h2.large");
+	var content_content = document.querySelectorAll("p.large");
+	var content_title_temp = [];
+	var content_content_temp = [];
 
 	for(var i=0;i<titlelist.length; i++)
 	{	
 		title = titlelist[i].textContent;
-		if (isWord(word_list, titlelist[i].textContent))
+		if (isWord(word_list, title))
 		{
 			console.log(i);
 			titletemplist[i]=titlelist[i].textContent;
@@ -27,31 +32,31 @@ function isWord(word_list, title){
 			titlelist[i].textContent = "필터링된 제목입니다.";
 			contentslist[i].textContent = "필터링된 내용입니다.";
 		}
+
+		title = contentslist[i].textContent;
+		if (isWord(word_list, title))
+		{
+			titletemplist[i]=titlelist[i].textContent;
+			contentstemplist[i]=contentslist[i].textContent;
+			titlelist[i].textContent = "필터링된 제목입니다.";
+			contentslist[i].textContent = "필터링된 내용입니다.";
+		}
 	}
 
-//
-//
-//	for(var i=0;i<titlelist.length; i++)
-//	{
-//		if (titlelist[i].textContent.indexOf('수학') != false)
-//		{
-//			
-//			console.log(i," ",titlelist[i].textContent.indexOf('수학'),"\n");
-//			//titletemplist[i]=titlelist[i].textContent;
-//			//contentstemplist[i]=contentslist[i].textContent;
-//			titlelist[i].textContent = "필터링된 제목입니다.";
-//			contentslist[i].textContent = "필터링된 내용입니다.";
-//		}
-////		if (isWord(word_list, contentslist[i])
-////		{
-////			titletemplist[i]=titlelist[i].textContent;
-////			contentstemplist[i]=contentslist[i].textContent;
-////			titlelist[i].textContent = "필터링된 제목입니다.";
-////			contentslist[i].textContent = "필터링된 내용입니다.";
-////		}
-////		
-//	}
-//    //titlelist[1].textContent = "필터링된 제목입니다.";
-//	//contentslist[2].textContent = "필터링된 내용입니다.";
-//    
+	title = content_title[0].textContent;
+	if(isWord(word_list, title)){
+		content_title_temp = content_title.textContent;
+		content_content_temp[i] = content_content[i].textContent;
+		content_title[0].textContent = "필터링된 제목입니다.";
+		content_content[0].textContent = "필터링된 내용입니다.";
+	}
+	for(var i = 0; i < content_content.length; i++){
+		title = content_content[i].textContent;
+		if(isWord(word_list, title)){
+			content_title_temp = content_title.textContent;
+			content_content_temp[i] = content_content[i].textContent;
+			content_title[0].textContent = "필터링된 제목입니다.";
+			content_content[i].textContent = "필터링된 내용입니다.";
+		}
+	}
 })();
