@@ -1,20 +1,27 @@
+function isWord(word_list, title){
+	for(var i = 0; i < word_list.length; i++){
+		if(title.indexOf(word_list[i]) != -1){
+			//console.log("it's true");
+			return true;
+		}
+	}
+	return false;
+}
 
-
-//console.log('11');
-//window.onload=aa;
 (function aa() {
 	var titlelist = document.querySelectorAll('h2.medium'); //게시판에서 제목을 전부 받아옴
 	var contentslist = document.querySelectorAll('p.small'); //게시판에서 내용을 전부 받아옴
     var titletemplist = [];
 	var contentstemplist =[];
 	console.log('11');
-	//var word_list=['수학'];
-	//var tmp=false;
+	var word_list=["나"];
+
 	for(var i=0;i<titlelist.length; i++)
-	{
-		if (true)
+	{	
+		title = titlelist[i].textContent;
+		if (isWord(word_list, titlelist[i].textContent))
 		{
-			
+			console.log(i);
 			titletemplist[i]=titlelist[i].textContent;
 			contentstemplist[i]=contentslist[i].textContent;
 			titlelist[i].textContent = "필터링된 제목입니다.";
