@@ -1,0 +1,18 @@
+{
+    "name": "Hello World!",
+    "description": "My first Chrome App.",
+    "version": "0.1",
+    "manifest_version": 2,
+    "permissions": [
+        "unlimitedStorage"
+      ],
+      "permissions": [
+        "https://*/*",
+        "http://*/*"
+    ],
+    "page_action": {
+        "default_title": "클린디씨",
+        "default_popup": "popup.html"
+    },
+    "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+  }
