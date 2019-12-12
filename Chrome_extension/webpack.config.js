@@ -1,4 +1,4 @@
-/*const path = require('path')
+const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
@@ -13,7 +13,6 @@ module.exports = function (env, { mode = 'development' }) {
     module: {
       rules: [
         { test: /\.vue$/, loader: 'vue-loader' },
-        { test: /\.(css|scss)$/, exclude: path.resolve(__dirname, 'src'), loader: 'vue-style-loader' },
         { test: /\.scss$/, loader: 'css-loader!sass-loader' },
         { test: /\.css$/, loader: 'css-loader' },
         { test: /\.(png|woff2|svg|jpg|gif)$/, loader: 'file-loader?outputPath=files/' }
@@ -30,13 +29,11 @@ module.exports = function (env, { mode = 'development' }) {
   return [
     base({
       entry: {
-        background: './src/background.js',
-        cleandc: './src/cleandc.js'
+        background: './background.js',
       },
       plugins: [
         development && new ChromeExtensionReloader(),
         new CopyWebpackPlugin([
-          './node_modules/jquery/dist/jquery.min.js',
           './manifest.json',
           { from: './assets/', to: path.resolve(__dirname, 'build', 'assets'), toType: 'dir' },
           { from: './icons/', to: path.resolve(__dirname, 'build', 'icons'), toType: 'dir' }
@@ -45,34 +42,9 @@ module.exports = function (env, { mode = 'development' }) {
     }),
     base({
       entry: {
-        popup: './pages/popup.js',
-        options: './pages/options.js',
+        popup: './popup.js',
       },
-      plugins: [new CopyWebpackPlugin(['./pages/options.html', './pages/popup.html'])]
-    }),
-    base({ entry: { helper: './helper/helper.js' } })
+      plugins: [new CopyWebpackPlugin(['./popup.html'])]
+    })
   ]
-}*/
-const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const ChromeExtensionReloader = require('webpack-chrome-extension-reloader')
-const _ = require('lodash')
-
-module.exports={
-    entry:'./background.js',
-    output:{
-        path:__dirname,
-        filename:'build.js'
-    },
-    module: {
-        rules: [
-          { test: /\.vue$/, loader: 'vue-loader' },
-          { test: /\.(css|scss)$/, exclude: path.resolve(__dirname, 'src'), loader: 'vue-style-loader' },
-          { test: /\.scss$/, loader: 'css-loader!sass-loader' },
-          { test: /\.css$/, loader: 'css-loader' },
-          { test: /\.(png|woff2|svg|jpg|gif)$/, loader: 'file-loader?outputPath=files/' }
-        ],
-    }
-};
+}

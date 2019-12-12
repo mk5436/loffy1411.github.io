@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "background.js",
-  "dependencies": {},
+  "dependencies": {
+    "vue-template-compiler": "^2.6.10"
+  },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.0",
@@ -17,5 +19,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "build": "webpack --mode development"
 }
