@@ -1,18 +1,36 @@
 {
-    "name": "Hello World!",
-    "description": "My first Chrome App.",
-    "version": "0.1",
-    "manifest_version": 2,
-    "permissions": [
-        "unlimitedStorage"
-      ],
-      "permissions": [
-        "https://*/*",
-        "http://*/*"
-    ],
-    "page_action": {
-        "default_title": "클린디씨",
-        "default_popup": "popup.html"
+  "version": "0.1",
+  "app": {
+    "background": {
+      "scripts": [
+        "background.js"
+      ]
+    }
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "calculator-16.png",
+      "128": "calculator-128.png"
     },
-    "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+    "default_title": "클린디씨",
+    "default_popup": "popup.html"
+  },
+  "name": "Hello World!",
+  "description": "My first Chrome App.",
+  "manifest_version": 2,
+  "minimum_chrome_version": "23",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.dcinside.com/*",
+    "*://*.dcinside.co.kr/*",
+    "tabs",
+    "notifications"
+  ],
+  "icons": {
+    "16": "calculator-16.png",
+    "128": "calculator-128.png"
   }
+}
