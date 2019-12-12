@@ -1,7 +1,5 @@
-chrome.runtime.onInstalled.addListener(function () {
-  chrome.contextMenus.create({
-    "id": "sampleContextMenu",
-    "title": "Sample Context Menu",
-    "contexts": ["selection"]
+chrome.tabs.executeScript(null, {
+  file : './popup.js'
+  }, function() {
+  window.close();
   });
-});

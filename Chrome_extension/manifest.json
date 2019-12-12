@@ -1,22 +1,18 @@
 {
-  "version": "0.1",
+  "name": "yjh-tools",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "내꺼",
   "background": {
     "scripts": [
-      "background.js"
-    ]
+      "./background.js"
+    ],
+    "persistent": true
   },
   "browser_action": {
-    "default_icon": {
-      "16": "calculator-16.png",
-      "128": "calculator-128.png"
-    },
-    "default_title": "클린디씨",
+    "default_title": "내꺼",
     "default_popup": "./popup.html"
   },
-  "name": "Hello World!",
-  "description": "My first Chrome App.",
-  "manifest_version": 2,
-  "minimum_chrome_version": "23",
   "permissions": [
     "contextMenus",
     "storage",
@@ -26,9 +22,5 @@
     "*://*.dcinside.co.kr/*",
     "tabs",
     "notifications"
-  ],
-  "icons": {
-    "16": "calculator-16.png",
-    "128": "calculator-128.png"
-  }
+  ]
 }
