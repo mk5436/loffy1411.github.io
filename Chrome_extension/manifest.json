@@ -10,6 +10,9 @@
     "persistent": true
   },
   "browser_action": {
+    "default_icon":{
+      "128":"./src/oss_001.png"
+    },
     "default_title": "내꺼",
     "default_popup": "./popup.html"
   },
