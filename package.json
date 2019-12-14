@@ -1,0 +1,22 @@
+{
+  "name": "l",
+  "version": "1.0.0",
+  "description": "2019 Fall 오픈소스소프트웨어실습\r Repository for team project by Team 9 (SWE2021-42)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chocoPenguin/loffy1411.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chocoPenguin/loffy1411.github.io/issues"
+  },
+  "homepage": "https://github.com/chocoPenguin/loffy1411.github.io#readme"
+}

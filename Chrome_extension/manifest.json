@@ -1,0 +1,29 @@
+{
+  "name": "yjh-tools",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "내꺼",
+  "background": {
+    "scripts": [
+      "./background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon":{
+      "128":"./src/oss_001.png"
+    },
+    "default_title": "내꺼",
+    "default_popup": "./popup.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.dcinside.com/*",
+    "*://*.dcinside.co.kr/*",
+    "tabs",
+    "notifications"
+  ]
+}
