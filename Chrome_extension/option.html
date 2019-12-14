@@ -1,20 +1,31 @@
-<link rel="stylesheet" href="option.css">
-<div class="wrapper">
-    <div class="one" style="vertical-align: middle;">
-        <img id="image" src="./src/title.png" width='100' />
-    </div>
-    <div class="two">
-        <div class="scrollbar" id="style-2">
-            <div class="force-overflow">
-                <div class="chip">
-                    John Doe <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
-                </div>
-                <div class="chip">
-                    John Doe <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+<html>
+    <script src="option.js"></script>
+<body>
+    <link rel="stylesheet" href="option.css">
+    <div class="wrapper">
+        <div class="one" style="vertical-align: middle;">
+            <img id="image" src="./src/title.png" width='100%' ; />
+        </div>
+        <div class="two">
+            <div class="scrollbar" id="style-2">
+                <div class="force-overflow">
+                    <div class="chip" id="chips">
+                        John Doe <div class="closebtn">&times;</div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="three">
+            <button class="btn" id="github">
+                <img src="./src/github_button.png" width='100%'/>
+            </button>
+        </div>
+        <div class="four" style="text-align: center;">
+            <button class="btn" id="chrome">
+                <img src="./src/market.svg" width='100%' />
+            </button>
+        </div>
     </div>
-    <div class="three">Three</div>
-    <div class="four">Four</div>
-</div>
+</body>
+
+</html>

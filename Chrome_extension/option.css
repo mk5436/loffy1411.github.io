@@ -15,6 +15,7 @@
     background-color: rgba(246,114,128,0.4);
   }
   .three {
+    padding:20px;
     grid-column: 3 / 4;
     grid-row: 4;
     background-color: rgba(108,91,125,0.9);
@@ -82,4 +83,11 @@
 
 .closebtn:hover {
   color: #000;
+}
+
+.btn {
+  background-color:rgba(0,0,0,0);
+  border: 0px;
+  padding: 0px;
+  cursor: pointer;
 }
