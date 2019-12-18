@@ -1,16 +1,10 @@
-//var word_list=['수학'];
-//function isWord(word_list, letter){
-//	for(var i in word_list){
-//		if(letter.indexOf(i) != -1)
-//			return true;
-//	}
-//	return false;
-//}
-
-chrome.browserAction.onClicked.addListener(
-	function aa(tab) {
-        chrome.tabs.executeScript(tab.id, {
-        file: 'inject.js'
-    });
-});
-
+chrome.tabs.onUpdated.addListener(
+    function(tabId, changeInfo, tab) {
+      if (changeInfo.url) {
+        chrome.tabs.sendMessage( tabId, {
+          message: 'changeurl',
+          url: changeInfo.url
+        })
+      }
+    }
+);
