@@ -46,7 +46,7 @@ function logicc() { // 실제 필터링 진행 중
 		word_list.push(getfromCookie[i]);
 	}
 
-	alert(word_list);
+	
 
 	for (var i = 0; i < titlelist.length; i++) {
 
