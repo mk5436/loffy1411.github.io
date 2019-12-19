@@ -11,13 +11,11 @@ Repository for team project by Team 9 (SWE2021-42)
 ## Documents
 
 ### Meeting Logs
-[Meeting Logs (Word)](docs/logs.doc)
+[Meeting Logs (Word)](docs/log.doc)
 
-### Brainstorming
-[Brainstorming (Word)](docs/Brainstorming)
 
 ### Presentation
-[Presentation (PowerPoint)](docs/Presentation)
+[Presentation (PowerPoint)](docs/Presentation.pptx)
 
 ## Sources
 
