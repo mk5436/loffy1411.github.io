@@ -7,7 +7,7 @@
   .one {
     grid-column: 3/5;
     grid-row: 1;
-    background-color: rgba(246,114,128,0.9);
+    background-color: rgba(246,114,128,1.0);
   }
   .two { 
     grid-column: 3 / 5;
@@ -39,7 +39,7 @@
 
 .force-overflow
 {
-	min-height: 450px;
+  min-height: 450px;
 }
 
 #style-2::-webkit-scrollbar-track
@@ -65,6 +65,7 @@
 .chip {
   display: inline-block;
   padding: 0 25px;
+  margin: 1px;
   height: 50px;
   font-size: 16px;
   line-height: 50px;

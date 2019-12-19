@@ -1,7 +1,7 @@
 'use strict';
 function getimage() {
     chrome.tabs.create({
-       url:"option.html",
+       url:"./Pages/option.html",
        selected:true  // We open the tab in the background
 })
 }
@@ -15,3 +15,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+

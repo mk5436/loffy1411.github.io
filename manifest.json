@@ -1,22 +1,41 @@
 {
-    "name": "Every Filter",
-    "version": "1.0",
-    "manifest_version": 2,
-    "background": {
-      "scripts":["background.js"]
-    },
-    "content_scripts": [
-      {
-        "matches": [
-	  "https://everytime.kr/*",
-	  "http://everytime.kr/*"
-	],
-        "js": ["script.js"]
-      }
-    ],
-    "permissions": [
-      "tabs",
-      "https://everytime.kr/*",
-      "http://everytime.kr/*"
+  "name": "Every Filter",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "scripts": [
+      "background.js"
     ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://everytime.kr/*",
+        "http://everytime.kr/*"
+      ],
+      "js": [
+        "script.js"
+      ]
+    }
+  ],
+  "icons":{
+    "128":"./Pages/src/oss_001.png"
+  },
+  "browser_action": {
+    "default_icon":{
+      "128":"./Pages/src/oss_001.png"
+    },
+    "default_title": "Every Filter",
+    "default_popup": "./Pages/popup.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "notifications",
+    "tabs",
+    "https://everytime.kr/*",
+    "http://everytime.kr/*"
+  ]
 }
