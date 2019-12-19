@@ -33,7 +33,6 @@ function addWords() {
 }
 
 function deleteKeyword(button) {
-    alert("DELETE");
     button.parentElement.style.displan = 'none';
 }
 
@@ -81,5 +80,4 @@ function makeCookie() {
         value: localStorage.getItem('Data'),
         domain: ".everytime.kr"
     });
-    alert(document.cookie);
 }
