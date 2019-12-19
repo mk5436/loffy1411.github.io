@@ -39,6 +39,7 @@ chrome.runtime.onMessage.addListener( // url변경 시, 필터링 유지 및 새
 	var titletemplist = [];
 	var contentstemplist =[];
 	var word_list=['는', '미적', '네이처'];
+
 	for(var i=0;i<titlelist.length; i++)
 	{
 		
@@ -57,5 +58,4 @@ chrome.runtime.onMessage.addListener( // url변경 시, 필터링 유지 및 새
 			contentslist[i].textContent = "";
 		}
 	}
-	
   }
