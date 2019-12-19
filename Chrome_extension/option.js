@@ -13,14 +13,25 @@ function gotoChromeStore() {
     })
 }
 
-function processFile() {
-    var reader = new FileReader();
-    reader.readAsText("./filteredWords.txt", "euc-kr");
-    reader.onload = function () {
-        document.getElementById("chips").innerHTML=reader.result;
-        //output.innerText = reader.result;
+function readTextFile(file) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function () {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+                document.getElementById("chips").innerHTML=allText;
+                output.innerText = reader.result;
+            }
+        }
     };
+    rawFile.send(null);
 }
+
+readTextFile("./filteredWords.txt");
 
 function deleteKeyword(button){
     button.parentElement.style.displan='none';
