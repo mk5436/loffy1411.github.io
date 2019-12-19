@@ -47,18 +47,14 @@ chrome.runtime.onMessage.addListener( // url변경 시, 필터링 유지 및 새
 			titletemplist[i]=titlelist[i].textContent;
 			contentstemplist[i]=contentslist[i].textContent;
 			titlelist[i].textContent = "필터링된 글입니다.";
-			contentslist[i].textContent = "";																
-
-			document.querySelectorAll("#container > div.wrap.articles > article > a > div")[i].outerHTML="";
+			contentslist[i].textContent = "";
 		}
 		title = contentlist[i].textContent;
 		if (isWord(word_list, title)){ // 글 내용에 필터링 단어가 있으면 필터링
 			titletemplist[i]=titlelist[i].textContent;
 			contentstemplist[i]=contentslist[i].textContent;
 			titlelist[i].textContent = "필터링된 글입니다.";
-			contentslist[i].textContent = "";																
-
-			document.querySelectorAll("#container > div.wrap.articles > article > a > div")[i].outerHTML="";
+			contentslist[i].textContent = "";
 		}
 	}
 	
