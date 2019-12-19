@@ -14,7 +14,8 @@
         "http://everytime.kr/*"
       ],
       "js": [
-        "script.js"
+        "script.js",
+        "./Pages/option.js"
       ]
     }
   ],
@@ -35,6 +36,7 @@
     "webRequestBlocking",
     "notifications",
     "tabs",
+    "cookies",
     "https://everytime.kr/*",
     "http://everytime.kr/*"
   ]

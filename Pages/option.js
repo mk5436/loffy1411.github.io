@@ -1,4 +1,7 @@
 'use strict';
+
+var local_data = localStorage.getItem('Data');
+
 function gotoGithub() {
     chrome.tabs.create({
         url: "https://github.com/mk5436/loffy1411.github.io",
@@ -13,13 +16,24 @@ function gotoChromeStore() {
     })
 }
 
-function writeLocalStorage(item){
-    var data=localStorage.getItem('Data');
-    data+='\n'+item;
-    localStorage.Data=data;
+function addWords() {
+    local_data = localStorage.getItem('Data');
+    local_data = local_data.split('\n');
+
+    var input = document.getElementById("text_input");
+    local_data += ',';
+    local_data += input.value;
+
+    localStorage.setItem('Data', local_data);
+    var chips = document.getElementById("chips");
+    var tmp = document.createElement('div');
+    tmp.innerHTML = '<span class="chip">' + input.value + '<div class="closebtn">&times;</div></span>';
+    chips.appendChild(tmp);
+    input.value = "";
 }
 
 function deleteKeyword(button) {
+    alert("DELETE");
     button.parentElement.style.displan = 'none';
 }
 
@@ -32,28 +46,40 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         else if (btn.id == "chrome") {
             btn.addEventListener('click', gotoChromeStore);
+        } else if (btn.id == "text_input_btn") {
+            btn.addEventListener('click', addWords);
         }
-        /*
-        else if (btn.id == "chips") {
-            btn.addEventListener('click', deleteKeyword(btn));
-        }*/
+    }
+    var closebtns = document.querySelectorAll('.closebtn');
+    for (var i = 0; i < btns.length; i++) {
+        let btn = btns[i];
+        btn.addEventListener('click', deleteKeyword(btn));
     }
 });
 
-document.addEventListener('DOMContentLoaded',function(){
-    if(!localStorage.Data){
-        localStorage.setItem('Data','Default');
+document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.Data) {
+        localStorage.setItem('Data', '');
     }
-    var local_data=localStorage.getItem('Data');
-    local_data=local_data.split('\n');
+    local_data = localStorage.getItem('Data');
+    local_data = local_data.split(',');
 
-    var chips=document.getElementById("chips");
-    alert(chips.childNodes.length);
-    alert(chips.firstChild.nextSibling.childNodes.length);
-    chips.firstChild.nextSibling.firstChild.nodeValue="HI";
-
-    var tmp=document.createElement('div');
-    tmp.innerHTML='<span class="chip">John Doe <div class="closebtn">&times;</div></span>';
-    chips.appendChild(tmp);
+    var chips = document.getElementById("chips");
+    for (var i = 0; i < local_data.length; i++) {
+        if (local_data[i].length == 0) continue;
+        var tmp = document.createElement('div');
+        tmp.innerHTML = '<span class="chip">' + local_data[i] + '<div class="closebtn">&times;</div></span>';
+        chips.appendChild(tmp);
+    }
+    makeCookie();
 });
 
+function makeCookie() {
+    chrome.cookies.set({
+        url: "https://everytime.kr/",
+        name: "EveryFilter",
+        value: localStorage.getItem('Data'),
+        domain: ".everytime.kr"
+    });
+    alert(document.cookie);
+}

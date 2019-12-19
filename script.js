@@ -38,7 +38,7 @@ chrome.runtime.onMessage.addListener( // url변경 시, 필터링 유지 및 새
 	var contentslist = document.querySelectorAll("#container > div.wrap.articles > article > a > p"); //게시판에서 내용을 전부 받아옴
 	var titletemplist = [];
 	var contentstemplist =[];
-	var word_list=['는', '미적', '네이처'];
+	var word_list=['계절', '미적', '네이처'];
 
 	for(var i=0;i<titlelist.length; i++)
 	{
