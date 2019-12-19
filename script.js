@@ -40,52 +40,22 @@ chrome.runtime.onMessage.addListener( // url변경 시, 필터링 유지 및 새
 	var contentstemplist =[];
 	var word_list=['는', '미적', '네이처'];
 
-	var content_title = document.querySelectorAll("h2.large");
-	var content_content = document.querySelectorAll("p.large");
-	var content_title_temp = [];
-	var content_content_temp = [];
-	
-	if(!content_title[0]){ // 게시판 글 필터링
-		for(var i=0;i<titlelist.length; i++)
-		{	
-			title = titlelist[i].textContent;
-			if (isWord(word_list, title))
-			{
-				console.log(i);
-				titletemplist[i]=titlelist[i].textContent;
-				contentstemplist[i]=contentslist[i].textContent;
-				titlelist[i].textContent = "필터링된 제목입니다.";
-				contentslist[i].textContent = "필터링된 내용입니다.";
-			}
-
-			title = contentslist[i].textContent;
-			if (isWord(word_list, title))
-			{
-				titletemplist[i]=titlelist[i].textContent;
-				contentstemplist[i]=contentslist[i].textContent;
-				titlelist[i].textContent = "필터링된 제목입니다.";
-				contentslist[i].textContent = "필터링된 내용입니다.";
-			}
+	for(var i=0;i<titlelist.length; i++)
+	{
+		
+		title = titlelist[i].textContent;
+		if (isWord(word_list, title)){ // 제목에 필터링 단어가 있으면 필터링
+			titletemplist[i]=titlelist[i].textContent;
+			contentstemplist[i]=contentslist[i].textContent;
+			titlelist[i].textContent = "필터링된 글입니다.";
+			contentslist[i].textContent = "";
+		}
+		title = contentlist[i].textContent;
+		if (isWord(word_list, title)){ // 글 내용에 필터링 단어가 있으면 필터링
+			titletemplist[i]=titlelist[i].textContent;
+			contentstemplist[i]=contentslist[i].textContent;
+			titlelist[i].textContent = "필터링된 글입니다.";
+			contentslist[i].textContent = "";
 		}
 	}
-
-	if(!content_title[0]){ // 글 및 댓글 필터링
-		title = content_title[0].textContent;
-		if(isWord(word_list, title)){
-				content_title_temp = content_title.textContent;
-			content_content_temp[i] = content_content[i].textContent;
-			content_title[0].textContent = "필터링된 제목입니다.";
-			content_content[0].textContent = "필터링된 내용입니다.";
-		}
-		for(var i = 0; i < content_content.length; i++){
-			title = content_content[i].textContent;
-			if(isWord(word_list, title)){
-				content_title_temp = content_title.textContent;
-				content_content_temp[i] = content_content[i].textContent;
-				content_title[0].textContent = "필터링된 제목입니다.";
-				content_content[i].textContent = "필터링된 내용입니다.";
-			}
-		}
-	}
-	
   }
