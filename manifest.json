@@ -18,6 +18,9 @@
       ]
     }
   ],
+  "icons":{
+    "128":"./Pages/src/oss_001.png"
+  },
   "browser_action": {
     "default_icon":{
       "128":"./Pages/src/oss_001.png"

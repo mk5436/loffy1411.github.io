@@ -13,58 +13,10 @@ function gotoChromeStore() {
     })
 }
 
-function saveToFile_Chrome(fileName, content) {
-    var blob = new Blob([content], { type: 'text/plain' });
- 
-    objURL = window.URL.createObjectURL(blob);
-            
-    // 이전에 생성된 메모리 해제
-    if (window.__Xr_objURL_forCreatingFile__) {
-        window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
-    }
-    window.__Xr_objURL_forCreatingFile__ = objURL;
- 
-    var a = document.createElement('a');
- 
-    a.download = fileName;
-    a.href = objURL;
-    a.click();
-}
-
-function readTextFile(file__) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function () {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-                document.getElementById("chips").innerHTML=allText;
-                output.innerText = reader.result;
-            }
-        }
-    };
-    rawFile.send(null);
-}
-
-readTextFile("./filteredWords.txt");
-
-
-function wrietFile(msg){
-    if(name=="") return false;
-    var fullpath="./filterword.txt";
-    var fileObject=new ActiveXObject("Scripting.FileSystemObject");
-    if(!fileObject.FileExists(fullpath)){
-        var fWrite=fileObject.CreateTextFile(fullpath,false);
-        fWrite.write(msg);
-        fWrite.close();
-    }else{
-        var fWrite=fileObject.OpenTextFile(fullpath,8);
-        fWrite.write(msg);
-        fWrite.close();
-    }
+function writeLocalStorage(item){
+    var data=localStorage.getItem('Data');
+    data+='\n'+item;
+    localStorage.Data=data;
 }
 
 function deleteKeyword(button) {
@@ -81,8 +33,27 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (btn.id == "chrome") {
             btn.addEventListener('click', gotoChromeStore);
         }
+        /*
         else if (btn.id == "chips") {
             btn.addEventListener('click', deleteKeyword(btn));
-        }
+        }*/
     }
 });
+
+document.addEventListener('DOMContentLoaded',function(){
+    if(!localStorage.Data){
+        localStorage.setItem('Data','Default');
+    }
+    var local_data=localStorage.getItem('Data');
+    local_data=local_data.split('\n');
+
+    var chips=document.getElementById("chips");
+    alert(chips.childNodes.length);
+    alert(chips.firstChild.nextSibling.childNodes.length);
+    chips.firstChild.nextSibling.firstChild.nodeValue="HI";
+
+    var tmp=document.createElement('div');
+    tmp.innerHTML='<span class="chip">John Doe <div class="closebtn">&times;</div></span>';
+    chips.appendChild(tmp);
+});
+
