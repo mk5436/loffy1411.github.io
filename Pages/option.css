@@ -18,12 +18,12 @@
     padding:20px;
     grid-column: 3 / 4;
     grid-row: 4;
-    background-color: rgba(108,91,125,0.9);
+    background-color: rgba(246,114,128,1.0);
   }
   .four {
     grid-column: 4 / 5;
     grid-row: 4;
-    background-color: rgba(108,91,125,0.9);
+    background-color: rgba(246,114,128,1.0);
   }
 
   .scrollbar
