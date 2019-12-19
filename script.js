@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener(
+chrome.runtime.onMessage.addListener( // url변경 시, 필터링 유지 및 새로운 내용 다시 필터링
     function(request, sender, sendResponse) {
       if (request.message == 'changeurl') {
           //url 변경 후 작동
@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener(
   });
   document.addEventListener("DOMContentLoaded", loaded());
 
-  function loaded(){
+  function loaded(){ // 크롤링 후 logicc 함수 불러오기
       var string = "";
       var reading = setInterval(function(){
           try{
@@ -23,7 +23,7 @@ chrome.runtime.onMessage.addListener(
         },100);
   }
   
-  function isWord(word_list, title){
+  function isWord(word_list, title){ // 주어진 title에 word_list의 단어가 있는지 여부를 판단해서 return
 	for(var i = 0; i < word_list.length; i++){
 		if(title.indexOf(word_list[i]) != -1){
 			//console.log("it's true");
@@ -32,27 +32,8 @@ chrome.runtime.onMessage.addListener(
 	}
 	return false;
   }
-/*
-  function logic(content){
-    //content에 게시물 제목 목록
-	var titlelist = content; //게시판에서 제목을 전부 받아옴
-	var word_list=['는'];
-	var titletemplist = [];
-	//var contentslist = content; //게시판에서 내용을 전부 받아옴
-	content.forEach(element =>{
-		if(isWord(word_list, element.textContent)) {
-			element.textContent= "필터링된 글입니다.";	
-		}});
-	
-	//var contentstemplist =[];
-	
-	
-	//content.forEach(element => {
-    //    console.log(element.textContent);
-    //});
-  }
-  */
-  function logicc(){
+
+  function logicc(){ // 실제 필터링 진행 중
 	var titlelist = document.querySelectorAll("#container > div.wrap.articles > article > a > h2"); //게시판에서 제목을 전부 받아옴
 	var contentslist = document.querySelectorAll("#container > div.wrap.articles > article > a > p"); //게시판에서 내용을 전부 받아옴
 	var titletemplist = [];
@@ -62,7 +43,16 @@ chrome.runtime.onMessage.addListener(
 	{
 		
 		title = titlelist[i].textContent;
-		if (isWord(word_list, title)){
+		if (isWord(word_list, title)){ // 제목에 필터링 단어가 있으면 필터링
+			titletemplist[i]=titlelist[i].textContent;
+			contentstemplist[i]=contentslist[i].textContent;
+			titlelist[i].textContent = "필터링된 글입니다.";
+			contentslist[i].textContent = "";																
+
+			document.querySelectorAll("#container > div.wrap.articles > article > a > div")[i].outerHTML="";
+		}
+		title = contentlist[i].textContent;
+		if (isWord(word_list, title)){ // 글 내용에 필터링 단어가 있으면 필터링
 			titletemplist[i]=titlelist[i].textContent;
 			contentstemplist[i]=contentslist[i].textContent;
 			titlelist[i].textContent = "필터링된 글입니다.";
