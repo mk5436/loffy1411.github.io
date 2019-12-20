@@ -23,8 +23,6 @@ Repository for team project by Team 9 (SWE2021-42)
 
 ## Sources
 
-### Frontend
-See [README for frontend](src/Frontend/README.md)
+### Install
+See [README for install program](docs/readme.txt)
 
-### Backend
-See [README for backend](src/Backend/README.md)
